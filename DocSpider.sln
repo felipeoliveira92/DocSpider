@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpider.WebApp", "DocSpider.WebApp\DocSpider.WebApp.csproj", "{620A5CD8-9B16-4C1F-8360-66F7B4864EDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpider.Domain", "DocSpider.Domain\DocSpider.Domain.csproj", "{A63029AA-7EF7-4E24-91CF-9A5FAD339113}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{620A5CD8-9B16-4C1F-8360-66F7B4864EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620A5CD8-9B16-4C1F-8360-66F7B4864EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620A5CD8-9B16-4C1F-8360-66F7B4864EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620A5CD8-9B16-4C1F-8360-66F7B4864EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A63029AA-7EF7-4E24-91CF-9A5FAD339113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A63029AA-7EF7-4E24-91CF-9A5FAD339113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A63029AA-7EF7-4E24-91CF-9A5FAD339113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A63029AA-7EF7-4E24-91CF-9A5FAD339113}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22F69DD7-E8C7-4362-A630-F20380C64A01}
+	EndGlobalSection
+EndGlobal
