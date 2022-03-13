@@ -15,7 +15,6 @@ namespace DocSpider.Domain
             this.File = file;
             this.FileName = fileName;
             DateCreate = DateTime.Now;
-
         }
 
         [Key]
