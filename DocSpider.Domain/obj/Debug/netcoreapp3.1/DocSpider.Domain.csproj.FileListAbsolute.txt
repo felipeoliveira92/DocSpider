@@ -1,0 +1,10 @@
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\bin\Debug\netcoreapp3.1\DocSpider.Domain.deps.json
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\bin\Debug\netcoreapp3.1\DocSpider.Domain.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\bin\Debug\netcoreapp3.1\DocSpider.Domain.pdb
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\obj\Debug\netcoreapp3.1\DocSpider.Domain.csproj.AssemblyReference.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\obj\Debug\netcoreapp3.1\DocSpider.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\obj\Debug\netcoreapp3.1\DocSpider.Domain.AssemblyInfoInputs.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\obj\Debug\netcoreapp3.1\DocSpider.Domain.AssemblyInfo.cs
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\obj\Debug\netcoreapp3.1\DocSpider.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\obj\Debug\netcoreapp3.1\DocSpider.Domain.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Domain\obj\Debug\netcoreapp3.1\DocSpider.Domain.pdb

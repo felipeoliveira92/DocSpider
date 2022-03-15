@@ -1,0 +1,16 @@
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\bin\Debug\netcoreapp3.1\DocSpider.Infra.deps.json
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\bin\Debug\netcoreapp3.1\DocSpider.Infra.runtimeconfig.json
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\bin\Debug\netcoreapp3.1\DocSpider.Infra.runtimeconfig.dev.json
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\bin\Debug\netcoreapp3.1\DocSpider.Infra.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\bin\Debug\netcoreapp3.1\DocSpider.Infra.pdb
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\bin\Debug\netcoreapp3.1\DocSpider.Domain.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\bin\Debug\netcoreapp3.1\DocSpider.Domain.pdb
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.csproj.AssemblyReference.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.AssemblyInfoInputs.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.AssemblyInfo.cs
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.csproj.CoreCompileInputs.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.csproj.CopyComplete
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.pdb
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Infra\obj\Debug\netcoreapp3.1\DocSpider.Infra.genruntimeconfig.cache

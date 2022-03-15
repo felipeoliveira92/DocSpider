@@ -8,14 +8,14 @@ namespace DocSpider.Domain
 {
     public class Document
     {
-        public Document(string title, string description, byte file, string fileName)
-        {
-            this.Title = title;
-            this.Description = description;
-            this.File = file;
-            this.FileName = fileName;
-            DateCreate = DateTime.Now;
-        }
+        //public Document(string title, string description, byte[] file, string fileName)
+        //{
+        //    this.Title = title;
+        //    this.Description = description;
+        //    this.File = file;
+        //    this.FileName = fileName;
+        //    DateCreate = DateTime.Now;
+        //}
 
         [Key]
         public int Id { get; set; }
@@ -30,13 +30,16 @@ namespace DocSpider.Domain
         public string Description { get; set; }
 
         [DisplayName("Arquivo")]
-        public byte File { get; set; }
+        public byte[] File { get; set; }
+
+        [DisplayName("Tipo")]
+        public string ContentType { get; set; }
 
         [DisplayName("Nome")]
         public string FileName { get; set; }
 
         [DisplayName("Data de Criação")]
-        public DateTime DateCreate { get; set; }
+        public DateTime DateCreate { get; set; } = DateTime.Now;
 
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,8 +26,10 @@ namespace DocSpider.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetSection("ConnectionStrings:Default");
-            services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(connectionString.Value));
+            //var connectionString = Configuration.GetSection("ConnectionStrings:Default");
+            services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Default")));
+            //services.AddDbContext<AppDbContext>();
+
             services.AddScoped<AppDbContext, AppDbContext>();
 
             services.AddControllersWithViews();
