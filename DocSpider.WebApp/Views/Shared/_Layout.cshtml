@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DocSpider.WebApp</title>
+    <title>@ViewData["Title"]DocSpider</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DocSpider.WebApp</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DocSpider</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Documents" asp-action="">Documents</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" data-toggle="modal" data-target="#myModal"asp-controller="Home">Sobre</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -38,6 +41,8 @@
         </main>
     </div>
 
+
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - DocSpider.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -47,5 +52,27 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header"
+                        <p>Sobre</p>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./logo.png" alt="Alternate Text" />
+                        <p>Versão 1.0</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

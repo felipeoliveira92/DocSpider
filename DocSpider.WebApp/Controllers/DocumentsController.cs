@@ -55,6 +55,8 @@ namespace DocSpider.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IFormFile file, Document document)
         {
+             await CheckExtension(file);
+
             IFormFile formFile = file;
 
             MemoryStream memoryStream = new MemoryStream();
@@ -88,17 +90,18 @@ namespace DocSpider.WebApp.Controllers
                 return NotFound();
             }
 
-            var documento = await _context.Documents.FindAsync(id);
-            if (documento == null)
+            var document = await _context.Documents.FindAsync(id);
+            if (document == null)
             {
                 return NotFound();
             }
-            return View(documento);
+                        
+            return View(document);
         }
 
         // POST: DocumentsController/Edit/5
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, Title, Description, File, FileName, DateCreate")] Document document)
+        public async Task<IActionResult> Edit(int id, IFormFile file, [Bind("Id, Title, Description, File, FileName, DateCreate")] Document document)
         {
             if (id != document.Id)
             {
@@ -107,6 +110,7 @@ namespace DocSpider.WebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                await CheckExtension(file);
                 try
                 {
                     _context.Update(document);
@@ -125,13 +129,14 @@ namespace DocSpider.WebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(document);
+            return View();
         }
 
         private bool DocumentoExists(int id)
         {
             return _context.Documents.Any(e => e.Id == id);
         }
+
 
         // GET: DocumentsController/Delete/5
         public async Task<ActionResult> Delete(int? id)
@@ -156,6 +161,22 @@ namespace DocSpider.WebApp.Controllers
             _context.Documents.Remove(document);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+               
+        private async Task<IActionResult> CheckExtension(IFormFile formFile)
+        {
+            if(formFile == null)
+            {
+                return View();
+            }
+            if (formFile.FileName.Contains(".exe") || formFile.FileName.Contains(".zip") 
+                || formFile.FileName.Contains(".bat"))
+            {
+
+                return View("Objeto invalido");
+            }
+
+            return View();
         }
     }
 }
