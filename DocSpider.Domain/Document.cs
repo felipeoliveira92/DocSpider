@@ -8,15 +8,6 @@ namespace DocSpider.Domain
 {
     public class Document
     {
-        //public Document(string title, string description, byte[] file, string fileName)
-        //{
-        //    this.Title = title;
-        //    this.Description = description;
-        //    this.File = file;
-        //    this.FileName = fileName;
-        //    DateCreate = DateTime.Now;
-        //}
-
         [Key]
         public int Id { get; set; }
 
@@ -40,6 +31,5 @@ namespace DocSpider.Domain
 
         [DisplayName("Data de Criação")]
         public DateTime DateCreate { get; set; } = DateTime.Now;
-
     }
 }

@@ -19,13 +19,12 @@ namespace DocSpider.WebApp.Controllers
         {
             _context = context;            
         }
-        // GET: DocumentsController
+        
         public ActionResult Index()
         {
             return View(_context.Documents.ToList());
         }
-
-        // GET: DocumentsController/Details/5
+        
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -44,15 +43,12 @@ namespace DocSpider.WebApp.Controllers
             return View(Document);
         }
 
-        // GET: DocumentsController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: DocumentsController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IFormFile file, Document document)
         {
              await CheckExtension(file);
@@ -82,7 +78,6 @@ namespace DocSpider.WebApp.Controllers
             return File(document.File, document.ContentType, document.Title);
         }
 
-        // GET: DocumentsController/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -99,7 +94,6 @@ namespace DocSpider.WebApp.Controllers
             return View(document);
         }
 
-        // POST: DocumentsController/Edit/5
         [HttpPost]
         public async Task<IActionResult> Edit(int id, IFormFile file, [Bind("Id, Title, Description, File, FileName, DateCreate")] Document document)
         {
@@ -118,7 +112,7 @@ namespace DocSpider.WebApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DocumentoExists(document.Id))
+                    if (!DocumentExists(document.Id))
                     {
                         return NotFound();
                     }
@@ -132,13 +126,11 @@ namespace DocSpider.WebApp.Controllers
             return View();
         }
 
-        private bool DocumentoExists(int id)
+        private bool DocumentExists(int id)
         {
             return _context.Documents.Any(e => e.Id == id);
         }
 
-
-        // GET: DocumentsController/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
