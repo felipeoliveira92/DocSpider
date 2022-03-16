@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpider.WebApp", "DocSpider.WebApp\DocSpider.WebApp.csproj", "{620A5CD8-9B16-4C1F-8360-66F7B4864EDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocSpider.WebApp", "DocSpider.WebApp\DocSpider.WebApp.csproj", "{620A5CD8-9B16-4C1F-8360-66F7B4864EDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpider.Domain", "DocSpider.Domain\DocSpider.Domain.csproj", "{A63029AA-7EF7-4E24-91CF-9A5FAD339113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocSpider.Domain", "DocSpider.Domain\DocSpider.Domain.csproj", "{A63029AA-7EF7-4E24-91CF-9A5FAD339113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpider.Infra", "DocSpider.Infra\DocSpider.Infra.csproj", "{E04DB2C5-DD2D-4FE4-AF53-7C456CA99979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocSpider.Infra", "DocSpider.Infra\DocSpider.Infra.csproj", "{E04DB2C5-DD2D-4FE4-AF53-7C456CA99979}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpider.Application", "DocSpider.Application\DocSpider.Application.csproj", "{F4475AE3-51D4-43BC-99FB-BB21EB9C83E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E04DB2C5-DD2D-4FE4-AF53-7C456CA99979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E04DB2C5-DD2D-4FE4-AF53-7C456CA99979}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E04DB2C5-DD2D-4FE4-AF53-7C456CA99979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4475AE3-51D4-43BC-99FB-BB21EB9C83E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4475AE3-51D4-43BC-99FB-BB21EB9C83E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4475AE3-51D4-43BC-99FB-BB21EB9C83E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4475AE3-51D4-43BC-99FB-BB21EB9C83E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
