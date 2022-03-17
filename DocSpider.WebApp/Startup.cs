@@ -1,3 +1,6 @@
+using DocSpider.Application.Interfaces;
+using DocSpider.Application.Repositories;
+using DocSpider.Application.Services;
 using DocSpider.Infra;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +34,8 @@ namespace DocSpider.WebApp
             services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Default")));
             
             services.AddScoped<AppDbContext, AppDbContext>();
+            services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<IDocumentServices, DocumentServices>();
 
             services.AddControllersWithViews();
         }

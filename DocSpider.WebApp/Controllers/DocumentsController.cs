@@ -1,4 +1,5 @@
-﻿using DocSpider.Domain;
+﻿using DocSpider.Application.Interfaces;
+using DocSpider.Domain;
 using DocSpider.Infra;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,12 @@ namespace DocSpider.WebApp.Controllers
     public class DocumentsController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IDocumentServices _documentServices;
 
-        public DocumentsController(AppDbContext context)
+        public DocumentsController(AppDbContext context, IDocumentServices documentServices)
         {
-            _context = context;            
+            _context = context;
+            _documentServices = documentServices;
         }
         
         public ActionResult Index()
@@ -51,24 +54,42 @@ namespace DocSpider.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(IFormFile file, Document document)
         {
-             await CheckExtension(file);
+            if (ModelState.IsValid)
+            {
+                await CheckExtension(file);
+                try
+                {
+                    if(_documentServices.TitleExists(document.Title) == false)
+                    {
+                        IFormFile formFile = file;
 
-            IFormFile formFile = file;
+                        MemoryStream memoryStream = new MemoryStream();
+                        formFile.OpenReadStream().CopyTo(memoryStream);
 
-            MemoryStream memoryStream = new MemoryStream();
-            formFile.OpenReadStream().CopyTo(memoryStream);
+                        var newdocument = new Document();
+                        newdocument.Title = document.Title;
+                        newdocument.Description = document.Description;
+                        newdocument.File = memoryStream.ToArray();
+                        newdocument.ContentType = formFile.ContentType;
+                        newdocument.FileName = document.FileName;
 
-            var newdocument = new Document();
-            newdocument.Title = document.Title;
-            newdocument.Description = document.Description;
-            newdocument.File = memoryStream.ToArray();
-            newdocument.ContentType = formFile.ContentType;
-            newdocument.FileName = document.FileName;
+                        _context.Documents.Add(newdocument);
+                        await _context.SaveChangesAsync();
 
-            _context.Documents.Add(newdocument);
-            await _context.SaveChangesAsync();
+                        return View();
+                    }
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw;
+                }
+                
+            }
+            return RedirectToAction(nameof(Index));
 
-            return View();
+
+
+
         }
 
         public async Task<IActionResult> Download(int id)
@@ -112,7 +133,7 @@ namespace DocSpider.WebApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DocumentExists(document.Id))
+                    if(!_documentServices.DocumentExists(document.Id))
                     {
                         return NotFound();
                     }
@@ -120,6 +141,14 @@ namespace DocSpider.WebApp.Controllers
                     {
                         throw;
                     }
+                    //if (!DocumentExists(document.Id))
+                    //{
+                    //    return NotFound();
+                    //}
+                    //else
+                    //{
+                    //    throw;
+                    //}
                 }
                 return RedirectToAction(nameof(Index));
             }

@@ -1,0 +1,15 @@
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\bin\Debug\netcoreapp3.1\DocSpider.Application.deps.json
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\bin\Debug\netcoreapp3.1\DocSpider.Application.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\bin\Debug\netcoreapp3.1\DocSpider.Application.pdb
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\bin\Debug\netcoreapp3.1\DocSpider.Domain.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\bin\Debug\netcoreapp3.1\DocSpider.Infra.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\bin\Debug\netcoreapp3.1\DocSpider.Domain.pdb
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\bin\Debug\netcoreapp3.1\DocSpider.Infra.pdb
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\obj\Debug\netcoreapp3.1\DocSpider.Application.csproj.AssemblyReference.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\obj\Debug\netcoreapp3.1\DocSpider.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\obj\Debug\netcoreapp3.1\DocSpider.Application.AssemblyInfoInputs.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\obj\Debug\netcoreapp3.1\DocSpider.Application.AssemblyInfo.cs
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\obj\Debug\netcoreapp3.1\DocSpider.Application.csproj.CoreCompileInputs.cache
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\obj\Debug\netcoreapp3.1\DocSpider.Application.csproj.CopyComplete
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\obj\Debug\netcoreapp3.1\DocSpider.Application.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.Application\obj\Debug\netcoreapp3.1\DocSpider.Application.pdb

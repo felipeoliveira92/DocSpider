@@ -157,3 +157,5 @@ C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.WebApp\obj\Debug\netcorea
 C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Documents\Create.cshtml.g.cs
 C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Documents\Delete.cshtml.g.cs
 C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Documents\Edit.cshtml.g.cs
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.WebApp\bin\Debug\netcoreapp3.1\DocSpider.Application.dll
+C:\Users\Felipe\Documents\Projetos\DocSpider\DocSpider.WebApp\bin\Debug\netcoreapp3.1\DocSpider.Application.pdb

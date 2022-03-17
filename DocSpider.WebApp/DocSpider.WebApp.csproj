@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DocSpider.Application\DocSpider.Application.csproj" />
     <ProjectReference Include="..\DocSpider.Infra\DocSpider.Infra.csproj" />
   </ItemGroup>
 
