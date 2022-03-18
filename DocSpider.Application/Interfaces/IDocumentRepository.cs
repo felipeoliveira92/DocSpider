@@ -8,18 +8,18 @@ namespace DocSpider.Application.Interfaces
 {
     public interface IDocumentRepository
     {
-        List<Document> ListDocuments();
+        public List<Document> ListDocuments();
 
-        Document Details(int? id);
+        public Document Details(int? id);
 
-        Document CreateNew();
+        public Document CreateNew();
 
-        Document Edit(int? id);
+        public Document Edit(int? id);
 
-        Task<Document> Delete(int? id);
+        public Task<Document> Delete(int? id);
 
-        Document GetById(int? id);
+        public Document GetById(int? id);
 
-        Document GetByName(string name);
+        public Document GetByName(string name);
     }
 }

@@ -54,42 +54,30 @@ namespace DocSpider.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(IFormFile file, Document document)
         {
-            if (ModelState.IsValid)
+            if(!TitleExists(document.Title))
             {
                 await CheckExtension(file);
-                try
-                {
-                    if(_documentServices.TitleExists(document.Title) == false)
-                    {
-                        IFormFile formFile = file;
 
-                        MemoryStream memoryStream = new MemoryStream();
-                        formFile.OpenReadStream().CopyTo(memoryStream);
+                IFormFile formFile = file;
 
-                        var newdocument = new Document();
-                        newdocument.Title = document.Title;
-                        newdocument.Description = document.Description;
-                        newdocument.File = memoryStream.ToArray();
-                        newdocument.ContentType = formFile.ContentType;
-                        newdocument.FileName = document.FileName;
+                MemoryStream memoryStream = new MemoryStream();
+                formFile.OpenReadStream().CopyTo(memoryStream);
 
-                        _context.Documents.Add(newdocument);
-                        await _context.SaveChangesAsync();
+                var newdocument = new Document();
+                newdocument.Title = document.Title;
+                newdocument.Description = document.Description;
+                newdocument.File = memoryStream.ToArray();
+                newdocument.ContentType = formFile.ContentType;
+                newdocument.FileName = document.FileName;
 
-                        return View();
-                    }
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    throw;
-                }
-                
+                _context.Documents.Add(newdocument);
+                await _context.SaveChangesAsync();
+
+                return View();
             }
-            return RedirectToAction(nameof(Index));
 
-
-
-
+            return View();
+            
         }
 
         public async Task<IActionResult> Download(int id)
@@ -133,7 +121,7 @@ namespace DocSpider.WebApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if(!_documentServices.DocumentExists(document.Id))
+                    if (!DocumentExists(document.Id))
                     {
                         return NotFound();
                     }
@@ -141,14 +129,6 @@ namespace DocSpider.WebApp.Controllers
                     {
                         throw;
                     }
-                    //if (!DocumentExists(document.Id))
-                    //{
-                    //    return NotFound();
-                    //}
-                    //else
-                    //{
-                    //    throw;
-                    //}
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -198,6 +178,11 @@ namespace DocSpider.WebApp.Controllers
             }
 
             return View();
+        }
+
+        private bool TitleExists(string Title)
+        {
+            return _context.Documents.Any(d => d.Title == Title);
         }
     }
 }

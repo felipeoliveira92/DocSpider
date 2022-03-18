@@ -52,12 +52,18 @@ namespace DocSpider.Application.Repositories
 
         public Document GetByName(string name)
         {
-            if (name == null)
+            var document = new Document();
+            if (!String.IsNullOrEmpty(name))
             {
-                return null;
-            }
-            
-            return _context.Documents.Find(name);
+                document = _context.Documents.Find(name);
+
+                if (!String.IsNullOrEmpty(document.Title))
+                {
+                    return document;
+                }
+
+            }            
+            return null;
         }
     }
 }
