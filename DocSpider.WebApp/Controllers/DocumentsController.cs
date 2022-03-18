@@ -68,6 +68,8 @@ namespace DocSpider.WebApp.Controllers
                 newdocument.ContentType = formFile.ContentType;
                 newdocument.FileName = document.FileName;
 
+                AddExtension(newdocument, file);
+
                 _context.Documents.Add(newdocument);
                 await _context.SaveChangesAsync();
 
@@ -81,8 +83,9 @@ namespace DocSpider.WebApp.Controllers
         public async Task<IActionResult> Download(int id)
         {
             var document = _context.Documents.FirstOrDefault(a => a.Id == id);
+                      
 
-            return File(document.File, document.ContentType, document.Title);
+            return File(document.File, document.ContentType, document.FileName);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -181,6 +184,40 @@ namespace DocSpider.WebApp.Controllers
         private bool TitleExists(string Title)
         {
             return _context.Documents.Any(d => d.Title == Title);
+        }
+
+        private Document AddExtension(Document document, IFormFile file)
+        {
+            if (file.FileName.Contains(".jpg"))
+            {
+                document.FileName += ".jpg";
+            }
+            else if (file.FileName.Contains(".jpeg"))
+            {
+                document.FileName += ".jpeg";
+            }
+            else if (file.FileName.Contains(".gif"))
+            {
+                document.FileName += ".gif";
+            }
+            else if (file.FileName.Contains(".png"))
+            {
+                document.FileName += ".png";
+            }
+            else if (file.FileName.Contains(".pdf"))
+            {
+                document.FileName += ".pdf";
+            }
+            else if(file.FileName.Contains(".docx"))
+            {
+                document.FileName += ".docx";
+            }
+            else if(file.FileName.Contains(".xls"))
+            {
+                document.FileName += ".xls";
+            }
+
+            return document;                
         }
     }
 }
