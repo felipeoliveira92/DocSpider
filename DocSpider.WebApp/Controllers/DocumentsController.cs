@@ -14,16 +14,19 @@ namespace DocSpider.WebApp.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IDocumentServices _documentServices;
+        private readonly IDocumentRepository _repository;
 
-        public DocumentsController(AppDbContext context, IDocumentServices documentServices)
+        public DocumentsController(AppDbContext context, IDocumentServices documentServices, IDocumentRepository repository)
         {
             _context = context;
             _documentServices = documentServices;
+            _repository = repository;
         }
         
         public ActionResult Index()
         {
-            return View(_context.Documents.ToList());
+            //return View(_context.Documents.ToList());
+            return View(_repository.ListDocuments());
         }
         
         public ActionResult Details(int? id)
@@ -52,7 +55,7 @@ namespace DocSpider.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(IFormFile file, Document document)
         {
-            if(!TitleExists(document.Title))
+            if (!TitleExists(document.Title))
             {
                 await CheckExtension(file);
 
@@ -75,6 +78,31 @@ namespace DocSpider.WebApp.Controllers
 
                 return View();
             }
+
+            //usando a interface IDocumentServices
+            //if (!_documentServices.TitleExists(document.Title))
+            //{
+            //    await CheckExtension(file);
+
+            //    IFormFile formFile = file;
+
+            //    MemoryStream memoryStream = new MemoryStream();
+            //    formFile.OpenReadStream().CopyTo(memoryStream);
+
+            //    var newdocument = new Document();
+            //    newdocument.Title = document.Title;
+            //    newdocument.Description = document.Description;
+            //    newdocument.File = memoryStream.ToArray();
+            //    newdocument.ContentType = formFile.ContentType;
+            //    newdocument.FileName = document.FileName;
+
+            //    AddExtension(newdocument, file);
+
+            //    _context.Documents.Add(newdocument);
+            //    await _context.SaveChangesAsync();
+
+            //    return View();
+            //}
 
             return View();
             

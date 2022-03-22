@@ -92,25 +92,9 @@ namespace DocSpider.Application.Repositories
 
         public Document GetByName(string name)
         {
-            
-            if (!String.IsNullOrEmpty(name))
-            {
-                var document = _context.Documents.First(d => d.Title == name);
+            var document = _context.Documents.First(d => d.Title == name);
 
-                if (!String.IsNullOrEmpty(document.Title))
-                {
-                    return document;
-                }
-                else
-                {
-                    return null;
-                }
-
-            }            
-            else
-            {
-                return null;
-            }
+            return document;
         }
     }
 }

@@ -23,7 +23,8 @@ namespace DocSpider.Application.Services
 
         public bool TitleExists(string title)
         {
-            if (_repository.GetByName(title) == null)
+            var document = _repository.GetByName(title);
+            if (document == null)
             {
                 return false;
             }
