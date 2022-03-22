@@ -11,6 +11,7 @@ namespace DocSpider.Application.Services
         {
             _repository = repository;
         }
+
         public bool DocumentExists(int id)
         {
             if(_repository.GetById(id) == null)
@@ -22,16 +23,14 @@ namespace DocSpider.Application.Services
 
         public bool TitleExists(string title)
         {
-            if(!String.IsNullOrEmpty(title))
+            if (_repository.GetByName(title) == null)
             {
-                if(_repository.GetByName(title) == null)
-                {
-                    return false;
-                }
-
-                return true;
+                return false;
             }
-            return true;
+            else
+            {
+                return true;
+            }            
         }
     }
 }
