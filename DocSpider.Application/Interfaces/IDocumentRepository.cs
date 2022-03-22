@@ -11,7 +11,7 @@ namespace DocSpider.Application.Interfaces
 
         public Document Details(int? id);
 
-        public Document CreateNew();
+        public void Save(Document document);
 
         public Document Edit(int? id);
 

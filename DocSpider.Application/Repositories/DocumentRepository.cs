@@ -3,6 +3,7 @@ using DocSpider.Domain;
 using DocSpider.Infra;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,29 +17,64 @@ namespace DocSpider.Application.Repositories
         {
             _context = context;
         }
-        public Document CreateNew()
+
+        public void Save(Document document)
         {
-            throw new NotImplementedException();
+            if(document != null)
+            {
+                _context.Documents.Add(document);
+                _context.SaveChanges();
+            }
         }
 
-        public Task<Document> Delete(int? id)
+        public async Task<Document> Delete(int? id)
         {
-            throw new NotImplementedException();
+            if(id != null)
+            {
+                var document = _context.Documents.First(d => d.Id == id);
+                _context.Documents.Remove(document);
+
+                return document;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Document Details(int? id)
         {
-            throw new NotImplementedException();
+            if (id != null)
+            {
+                var document = _context.Documents.First(d => d.Id == id);
+
+                return document;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Document Edit(int? id)
         {
-            throw new NotImplementedException();
+            if (id != null)
+            {
+                var document = _context.Documents.First(d => d.Id == id);
+                _context.Documents.Update(document);
+
+                return document;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<Document> ListDocuments()
         {
-            throw new NotImplementedException();
+            var documents = _context.Documents.ToList();
+            return documents;
         }
 
         public Document GetById(int? id)
@@ -47,23 +83,34 @@ namespace DocSpider.Application.Repositories
             {
                 return null;
             }
-            return _context.Documents.Find(id);
+            else
+            {
+                return _context.Documents.First(d => d.Id == id);
+            }
+            
         }
 
         public Document GetByName(string name)
         {
-            var document = new Document();
+            
             if (!String.IsNullOrEmpty(name))
             {
-                document = _context.Documents.Find(name);
+                var document = _context.Documents.First(d => d.Title == name);
 
                 if (!String.IsNullOrEmpty(document.Title))
                 {
                     return document;
                 }
+                else
+                {
+                    return null;
+                }
 
             }            
-            return null;
+            else
+            {
+                return null;
+            }
         }
     }
 }
