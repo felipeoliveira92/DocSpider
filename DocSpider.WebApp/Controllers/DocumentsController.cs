@@ -83,8 +83,12 @@ namespace DocSpider.WebApp.Controllers
 
         public async Task<IActionResult> Download(int id)
         {
-            var document = _context.Documents.FirstOrDefault(a => a.Id == id);
-                      
+            var document = _repository.GetById(id);
+
+            if(document == null)
+            {
+                return NotFound();
+            }                      
 
             return File(document.File, document.ContentType, document.FileName);
         }
