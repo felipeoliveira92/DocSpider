@@ -12,13 +12,11 @@ namespace DocSpider.WebApp.Controllers
 {
     public class DocumentsController : Controller
     {
-        private readonly AppDbContext _context;
         private readonly IDocumentServices _documentServices;
         private readonly IDocumentRepository _repository;
 
-        public DocumentsController(AppDbContext context, IDocumentServices documentServices, IDocumentRepository repository)
+        public DocumentsController(IDocumentServices documentServices, IDocumentRepository repository)
         {
-            _context = context;
             _documentServices = documentServices;
             _repository = repository;
         }
@@ -71,14 +69,12 @@ namespace DocSpider.WebApp.Controllers
 
                 AddExtension(newdocument, file);
 
-                _context.Documents.Add(newdocument);
-                await _context.SaveChangesAsync();
+                _repository.Save(newdocument);
 
                 return View();
             }
 
-            return View();
-            
+            return View();            
         }
 
         public async Task<IActionResult> Download(int id)
