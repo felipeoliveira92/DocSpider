@@ -25,7 +25,6 @@ namespace DocSpider.WebApp.Controllers
         
         public ActionResult Index()
         {
-            //return View(_context.Documents.ToList());
             return View(_repository.ListDocuments());
         }
         
@@ -36,8 +35,7 @@ namespace DocSpider.WebApp.Controllers
                 return NotFound();
             }
 
-            var Document = _context.Documents
-                .FirstOrDefault(d => d.Id == id);
+            var Document = _repository.Details(id);
 
             if (Document == null)
             {
@@ -98,7 +96,7 @@ namespace DocSpider.WebApp.Controllers
                 return NotFound();
             }
 
-            var document = await _context.Documents.FindAsync(id);
+            var document = _repository.GetById(id);
             if (document == null)
             {
                 return NotFound();
@@ -120,12 +118,11 @@ namespace DocSpider.WebApp.Controllers
                 await CheckExtension(file);
                 try
                 {
-                    _context.Update(document);
-                    await _context.SaveChangesAsync();
+                    _repository.Edit(id, document);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DocumentExists(document.Id))
+                    if(!_documentServices.DocumentExists(document.Id))
                     {
                         return NotFound();
                     }
@@ -139,19 +136,14 @@ namespace DocSpider.WebApp.Controllers
             return View();
         }
 
-        private bool DocumentExists(int id)
-        {
-            return _context.Documents.Any(e => e.Id == id);
-        }
-
-        public async Task<ActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var document = await _context.Documents.FindAsync(id);
+            var document = _repository.GetById(id);
             if (document == null)
             {
                 return NotFound();
@@ -162,9 +154,9 @@ namespace DocSpider.WebApp.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var document = await _context.Documents.FindAsync(id);
-            _context.Documents.Remove(document);
-            await _context.SaveChangesAsync();
+            var document = _repository.GetById(id);
+            await _repository.Delete(id);
+
             return RedirectToAction(nameof(Index));
         }
                

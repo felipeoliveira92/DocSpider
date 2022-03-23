@@ -13,7 +13,7 @@ namespace DocSpider.Application.Interfaces
 
         public void Save(Document document);
 
-        public Document Edit(int? id);
+        public Document Edit(int? id, Document document);
 
         public Task<Document> Delete(int? id);
 

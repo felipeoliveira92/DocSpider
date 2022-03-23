@@ -33,6 +33,7 @@ namespace DocSpider.Application.Repositories
             {
                 var document = _context.Documents.First(d => d.Id == id);
                 _context.Documents.Remove(document);
+                await _context.SaveChangesAsync();
 
                 return document;
             }
@@ -46,7 +47,7 @@ namespace DocSpider.Application.Repositories
         {
             if (id != null)
             {
-                var document = _context.Documents.First(d => d.Id == id);
+                var document = _context.Documents.FirstOrDefault(d => d.Id == id);
 
                 return document;
             }
@@ -56,12 +57,15 @@ namespace DocSpider.Application.Repositories
             }
         }
 
-        public Document Edit(int? id)
+        public Document Edit(int? id, Document document)
         {
             if (id != null)
             {
-                var document = _context.Documents.First(d => d.Id == id);
-                _context.Documents.Update(document);
+                if(id == document.Id)
+                {
+                    _context.Documents.Update(document);
+                    _context.SaveChanges();
+                }               
 
                 return document;
             }
@@ -85,7 +89,7 @@ namespace DocSpider.Application.Repositories
             }
             else
             {
-                return _context.Documents.First(d => d.Id == id);
+                return _context.Documents.FirstOrDefault(d => d.Id == id);
             }
             
         }
