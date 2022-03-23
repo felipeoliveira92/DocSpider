@@ -55,7 +55,7 @@ namespace DocSpider.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(IFormFile file, Document document)
         {
-            if (!TitleExists(document.Title))
+            if (!_documentServices.TitleExists(document.Title))
             {
                 await CheckExtension(file);
 
@@ -78,31 +78,6 @@ namespace DocSpider.WebApp.Controllers
 
                 return View();
             }
-
-            //usando a interface IDocumentServices
-            //if (!_documentServices.TitleExists(document.Title))
-            //{
-            //    await CheckExtension(file);
-
-            //    IFormFile formFile = file;
-
-            //    MemoryStream memoryStream = new MemoryStream();
-            //    formFile.OpenReadStream().CopyTo(memoryStream);
-
-            //    var newdocument = new Document();
-            //    newdocument.Title = document.Title;
-            //    newdocument.Description = document.Description;
-            //    newdocument.File = memoryStream.ToArray();
-            //    newdocument.ContentType = formFile.ContentType;
-            //    newdocument.FileName = document.FileName;
-
-            //    AddExtension(newdocument, file);
-
-            //    _context.Documents.Add(newdocument);
-            //    await _context.SaveChangesAsync();
-
-            //    return View();
-            //}
 
             return View();
             
@@ -208,12 +183,7 @@ namespace DocSpider.WebApp.Controllers
 
             return View();
         }
-
-        private bool TitleExists(string Title)
-        {
-            return _context.Documents.Any(d => d.Title == Title);
-        }
-
+        
         private Document AddExtension(Document document, IFormFile file)
         {
             if (file.FileName.Contains(".jpg"))

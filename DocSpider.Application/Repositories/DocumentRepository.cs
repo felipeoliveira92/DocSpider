@@ -92,7 +92,7 @@ namespace DocSpider.Application.Repositories
 
         public Document GetByName(string name)
         {
-            var document = _context.Documents.First(d => d.Title == name);
+            var document = _context.Documents.FirstOrDefault(d => d.Title == name);
 
             return document;
         }
